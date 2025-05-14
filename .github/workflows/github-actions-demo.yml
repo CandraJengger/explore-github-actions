@@ -1,3 +1,6 @@
+env:
+  NODE_ENV: production
+
 name: Github Action Test
 run-name: ${{ github.actor }} is testing out Github actions
 on: [push]
@@ -22,3 +25,9 @@ jobs:
     steps:
       - run: echo "🍏 This job's status is ${{ job.status }}."
       - run: echo "This job runs after the explore job"
+      - name: Get secret
+        env:
+          MY_SECRET: ${{ secrets.MY_SECRET }}
+        run: echo $MY_SECRET
+      - name: Log env values
+        run: echo "Environtment is $NODE_ENV"
