@@ -28,6 +28,6 @@ jobs:
       - name: Get secret
         env:
           MY_SECRET: ${{ secrets.MY_SECRET }}
-        run: echo $MY_SECRET
+        run: echo "$MY_SECRET"
       - name: Log env values
         run: echo "Environtment is $NODE_ENV"
